@@ -1,0 +1,40 @@
+.Player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20vw;
+  border: 3.2px solid #0059b3;
+  border-top: none;
+  background-color: #ccc;
+}
+
+.Player__name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0059b3;
+  padding: 10px;
+}
+
+.Player__score {
+  font-size: 20px;
+  font-weight: 400;
+  color: #0000ff;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.Player__button {
+  font-size: 16px;
+  font-weight: 900;
+  color: #003366;
+  padding: 5px;
+  margin: 0px 5px;
+  background-color: #fff;
+  border: 1.6px solid #003366;
+  border-radius: 5px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
