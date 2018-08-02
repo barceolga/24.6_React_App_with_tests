@@ -1,0 +1,21 @@
+.PlayersList {
+  margin: 25px 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.Player_table {
+  display: block;
+  max-width: 33vw;
+  height: auto;
+  font-size: 24px;
+  font-weight: 800;
+  background-color: #0059b3;
+  color: #fff;
+  padding: 12px;
+  margin-bottom: 0;
+  text-align: center;
+  width: 18.2vw;
+}
