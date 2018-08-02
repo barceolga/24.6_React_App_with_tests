@@ -36,6 +36,7 @@ it('should call on ScoreUpdate', () => {
         score: 0
     }
   ]
+
   const mockedOnScoreUpdate = jest.fn();
 
   const playerComponent = shallow(<PlayersList players={players} onScoreUpdate={mockedOnScoreUpdate} />);
