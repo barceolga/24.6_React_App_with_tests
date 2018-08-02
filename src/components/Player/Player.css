@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  width: 20vw;
+  width: auto;
   border: 3.2px solid #0059b3;
   border-top: none;
   background-color: #ccc;
