@@ -39,12 +39,20 @@ class App extends Component {
       players: [...this.state.players, newPlayer]
     });
   }
+
+  onPlayerRemove = (playerIndex) => {
+      //const updatedPlayers = this.state.players.filter(index => index !== playerIndex);
+      this.setState({
+        players: this.state.players.filter(index => index !== playerIndex)
+      });
+      console.log(this.state.players);
+    };
   render() {
     return (
       <div className="App">
           <h1 className="App_title">Scorekeeper</h1>
           <AddPlayer onPlayerAdd={this.onPlayerAdd} />
-          <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} />
+          <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove} />
       </div>
     );
   }
