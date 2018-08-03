@@ -5,7 +5,7 @@ import AddPlayer from './components/AddPlayer/AddPlayer';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus, faMinus, faTrashAlt, faTrophy } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faPlus, faMinus, faTrashAlt, faTrophy)
+library.add(faPlus, faMinus, faTrashAlt, faTrophy);
 
 class App extends Component {
   constructor(){
@@ -35,20 +35,6 @@ class App extends Component {
     });
   }
 
-  setWinnerStyle = ()  => {
-
-    const players = this.state.players;
-    console.log(players);
-    console.log(players[0]);
-    /*const indexIWantToChange = players[0];
-    console.log(indexIwantToChange);
-    const opacity = 0;
-
-    let changedPlayers = players.map((x,i) => i == indexIWantToChange ? opacity : x )
-    this.setState({
-      players: changedPlayers
-    })*/
-  }
 
   onPlayerRemove = (playerIndex) => {
       this.setState({
@@ -62,7 +48,6 @@ class App extends Component {
         this.setState({
             players: sortedList,
         });
-        //setWinnerStyle();
   }
   render() {
     return (
