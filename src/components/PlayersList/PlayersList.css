@@ -6,7 +6,7 @@
   margin-right: 40px;
 }
 
-.Player_table {
+.Player__table {
   display: block;;
   width: auto;
   height: auto;
@@ -17,4 +17,34 @@
   padding: 12px;
   margin-bottom: 0;
   text-align: center;
+}
+
+.PlayersList__classification {
+  width: 150px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #003366;
+  background-color: #ccc;
+  padding: 10px;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+}
+
+.Player__table-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: auto;
+  border: 3.2px solid #0059b3;
+  border-top: none;
+  background-color: #b3d9ff;
+}
+.Heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003366;
+  padding: 10px;
 }
