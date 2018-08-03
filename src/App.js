@@ -2,21 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import PlayersList from './components/PlayersList/PlayersList';
 import AddPlayer from './components/AddPlayer/AddPlayer';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPlus, faMinus, faTrashAlt, faTrophy } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faPlus, faMinus, faTrashAlt, faTrophy)
 
 class App extends Component {
   constructor(){
     super();
     this.state ={
-      players: [
-        /*{
-            name: 'Naomi Nagata',
-            score: 5
-        },
-        {
-            name: 'James Holden',
-            score: 0
-        }*/
-      ]
+      players: []
     }
   }
   onScoreUpdate = (playerIndex, scoreChange) => {
@@ -40,17 +35,41 @@ class App extends Component {
     });
   }
 
+  setWinnerStyle = ()  => {
+
+    const players = this.state.players;
+    console.log(players);
+    console.log(players[0]);
+    /*const indexIWantToChange = players[0];
+    console.log(indexIwantToChange);
+    const opacity = 0;
+
+    let changedPlayers = players.map((x,i) => i == indexIWantToChange ? opacity : x )
+    this.setState({
+      players: changedPlayers
+    })*/
+  }
+
   onPlayerRemove = (playerIndex) => {
       this.setState({
         players: this.state.players.filter((__, index ) => index !== playerIndex)
       });
     };
+
+    sortResults = () => {
+        const playersList = [...this.state.players];
+        let sortedList = playersList.sort(function(a, b) { return (a.score > b.score) ? -1 : ((b.score > a.score) ? 1 : 0);});
+        this.setState({
+            players: sortedList,
+        });
+        //setWinnerStyle();
+  }
   render() {
     return (
       <div className="App">
           <h1 className="App_title">Scorekeeper</h1>
           <AddPlayer onPlayerAdd={this.onPlayerAdd} />
-          <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove} />
+          <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove} sortResults={this.sortResults}/>
       </div>
     );
   }
