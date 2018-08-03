@@ -75,7 +75,7 @@ it ('should remove a player or players from the app', () => {
     expect(playersAfterUpdate.length).toEqual(testPlayers.length -1)
 });
 
-it ('should remove a player when remove button is clicked', () => {
+it('should remove a player when remove button is clicked', () => {
     const appComponent = mount(<App />);
 
     const players = testPlayers;
@@ -90,3 +90,21 @@ it ('should remove a player when remove button is clicked', () => {
     expect(playersAfterUpdate.length).toEqual(testPlayers.length -1 );
 
 });
+
+it('should classify players when classify button is clicked', () => {
+    const appComponent = mount(<App />);
+
+    const players = testPlayers;
+
+    appComponent.setState({ players });
+
+    const classifyButton = appComponent.find('.PlayersList__classification');
+    console.log(classifyButton);
+    classifyButton.simulate('click');
+
+    const playersAfterUpdate = appComponent.state('players');
+    console.log(playersAfterUpdate);
+
+    expect(playersAfterUpdate[1].score).toEqual(3);
+    expect(playersAfterUpdate[2].name).toEqual('Clarissa Mao');
+})
