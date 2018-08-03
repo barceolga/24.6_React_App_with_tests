@@ -50,26 +50,3 @@ it('should call on ScoreUpdate', () => {
 
   expect(mockedOnScoreUpdate).toBeCalledWith(1, 5);
 });
-
-/*it('should call on sortResult', () => {
-  const players = [
-    {
-        name: 'Naomi Nagata',
-        score: 5
-    },
-    {
-        name: 'James Holden',
-        score: 0
-    }
-  ]
-
-  const mockedSortResult = jest.fn();
-
-  const playersComponent = shallow(<PlayersList players={players} sortResult={mockedSortResult} />);
-
-  const classifyButton = playersComponent.find('.PlayersList_classification')
-
-  classifyButton.simulate('click');
-
-  expect(mockedSortResult).toBeCalled();
-});*/
