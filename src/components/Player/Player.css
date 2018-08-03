@@ -1,12 +1,12 @@
 .Player {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-evenly;
   box-sizing: border-box;
-  width: auto;
+  width: 750px;
   border: 3.2px solid #0059b3;
   border-top: none;
-  background-color: #ccc;
+  background-color: #e0ebeb;
 }
 
 .Player__name {
@@ -14,11 +14,22 @@
   font-weight: 600;
   color: #0059b3;
   padding: 10px;
-  text-align: center;
 }
 
-.Player__trophy .Icon {
+.Player__trophy span {
   opacity: 0;
+}
+
+.Player__trophy.visible {
+  opacity: 1;
+  color: #ffa31a;
+  font-size: 30px;
+  font-weight: 800,
+}
+
+.Player__trophy.invisible {
+  opacity: 0;
+  color: #ffa31a;
 }
 
 .Player__score {
@@ -28,12 +39,12 @@
   margin: 5px 0;
 }
 
-.Player__score.positve {
+.Player__score.positive {
   color: #0000ff;
 }
 
 .Player__score.negative {
-  color:  #ff471a;
+  color:  #e60000;
 }
 
 .Player__button {
@@ -41,28 +52,31 @@
   font-weight: 900;
   color: #003366;
   padding: 5px;
-  margin: 0px 5px;
-  background-color: #fff;
-  border: 1.6px solid #003366;
-  border-radius: 5px;
-  display: block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: 1s linear;
+}
+
+.Player__button:hover{
+  transform: scale(1.25);
+  color: #000d1a;
 }
 
 .Player__button-remove {
   font-size: 20px;
   font-weight: 900;
-  color: #fff;;
+  color: #e60000;
   padding: 5px;
-  margin: 0px 5px;
-  background-color: #ff471a;
-  border: 1.6px solid #fff;
-  border-radius: 5px;
-  display: block;
-  width: 20px;
   height: 20px;
+  cursor: pointer;
+  transition: 1s linear;
+}
+
+.Player__button-remove:hover{
+  transform: scale(1.25);
+}
+
+.Player div {
+  width: 125px;
   text-align: center;
 }
