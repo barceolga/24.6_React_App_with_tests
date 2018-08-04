@@ -5,8 +5,16 @@
   justify-content: center;
 }
 
+.App_options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .App_title {
   color: #003366;
   font-size: 32px;
   font-weight: 900;
+  margin: 10px auto
 }
