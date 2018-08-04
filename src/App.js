@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PlayersList from './components/PlayersList/PlayersList';
 import AddPlayer from './components/AddPlayer/AddPlayer';
+import BonusPoints from './components/BonusPoints/BonusPoints';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus, faMinus, faTrashAlt, faTrophy } from '@fortawesome/free-solid-svg-icons'
 
@@ -25,6 +26,13 @@ class App extends Component {
     })
   }
 
+  onMultiplyPoints = (multiplierPoints) => {
+      this.setState({
+        players: this.state.players.map((player) => {
+            return { ...player, score: player.score * multiplierPoints };
+        })
+      })
+  }
   onPlayerAdd = (playerName) => {
     const newPlayer = {
       name: playerName,
@@ -35,12 +43,12 @@ class App extends Component {
     });
   }
 
-
-  onPlayerRemove = (playerIndex) => {
+    onPlayerRemove = (playerIndex) => {
       this.setState({
         players: this.state.players.filter((__, index ) => index !== playerIndex)
       });
-    };
+  };
+
 
     sortResults = () => {
         const playersList = [...this.state.players];
@@ -54,6 +62,7 @@ class App extends Component {
       <div className="App">
           <h1 className="App_title">Scorekeeper</h1>
           <AddPlayer onPlayerAdd={this.onPlayerAdd} />
+          <BonusPoints onMultiplyPoints={this.onMultiplyPoints} />
           <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove} sortResults={this.sortResults}/>
       </div>
     );
