@@ -33,6 +33,7 @@ class App extends Component {
         })
       })
   }
+
   onPlayerAdd = (playerName) => {
     const newPlayer = {
       name: playerName,
@@ -61,8 +62,10 @@ class App extends Component {
     return (
       <div className="App">
           <h1 className="App_title">Scorekeeper</h1>
+          <div className="App_options">
           <AddPlayer onPlayerAdd={this.onPlayerAdd} />
           <BonusPoints onMultiplyPoints={this.onMultiplyPoints} />
+          </div>
           <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove} sortResults={this.sortResults}/>
       </div>
     );
