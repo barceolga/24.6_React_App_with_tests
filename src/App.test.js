@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import PlayersList from '../src/components/PlayersList/PlayersList';
 import AddPlayer from '../src/components/AddPlayer/AddPlayer';
+import BonusPoints from '../src/components/BonusPoints/BonusPoints';
 import App from './App';
 const testPlayers = [
   {
@@ -107,4 +108,22 @@ it('should classify players when classify button is clicked', () => {
 
     expect(playersAfterUpdate[1].score).toEqual(3);
     expect(playersAfterUpdate[2].name).toEqual('Clarissa Mao');
+})
+
+it('should multiply players score when multiply input is filled and multiply button is clicked', () => {
+    const appComponent = mount(<App />);
+
+    const players = testPlayers;
+
+    appComponent.setState({ players });
+
+    const onMultiplyPoints = appComponent.find(BonusPoints).prop('onMultiplyPoints');
+
+    onMultiplyPoints(3);
+
+    const playersAfterUpdate = appComponent.state('players');
+    console.log(playersAfterUpdate);
+
+    expect(playersAfterUpdate[0].score).toEqual(15);
+    expect(playersAfterUpdate[3].score).toEqual(6);
 })
