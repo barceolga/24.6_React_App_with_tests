@@ -3,14 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-left: 10px;
 }
+
  h3 {
    color: #003366;
    font-size: 16px;
    font-weight: 400;
    padding: 10px
  }
- 
+
 .BonusPoints__input {
   background-color: #b3d9ff;
   color: #003366;
