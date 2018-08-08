@@ -12,7 +12,8 @@ class App extends Component {
   constructor(){
     super();
     this.state ={
-      players: []
+      players: [],
+      editing: false
     }
   }
   onScoreUpdate = (playerIndex, scoreChange) => {
@@ -35,13 +36,17 @@ class App extends Component {
   }
 
   onPlayerAdd = (playerName) => {
-    const newPlayer = {
-      name: playerName,
-      score: 0,
+    if (playerName==='') {
+      alert('We need a name for a player');
+    } else {
+      const newPlayer = {
+        name: playerName,
+        score: 0,
+      }
+      this.setState({
+        players: [...this.state.players, newPlayer]
+      });
     }
-    this.setState({
-      players: [...this.state.players, newPlayer]
-    });
   }
 
     onPlayerRemove = (playerIndex) => {
@@ -50,7 +55,32 @@ class App extends Component {
       });
   };
 
+  onPlayerEdit = (playerIndex) => {
+    this.setState({
+      players: this.state.players.map((player, index) => {
+        if (index === playerIndex) {
+          return { ...player, editing: true };
+        }
+        return player;
+      })
+    })
+  }
 
+  changePlayer(player, playerIndex) {
+    let filteredPlayer = this.state.players.filter((__, index ) => index !== playerIndex);
+    let changePlayer = {...player};
+    let filterPlayer = [...filteredPlayer, changePlayer];
+    this.setState({
+      players: filterPlayer
+    });
+  }
+
+  onPlayerUpdate = (event) => {
+   event.preventDefault();
+   this.props.changePlayer({
+     name: this.state.name
+   })
+ }
     sortResults = () => {
         const playersList = [...this.state.players];
         let sortedList = playersList.sort(function(a, b) { return (a.score > b.score) ? -1 : ((b.score > a.score) ? 1 : 0);});
@@ -66,7 +96,7 @@ class App extends Component {
           <AddPlayer onPlayerAdd={this.onPlayerAdd} />
           <BonusPoints onMultiplyPoints={this.onMultiplyPoints} />
           </div>
-          <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove} sortResults={this.sortResults}/>
+          <PlayersList players={this.state.players} onPlayerEdit={this.onPlayerEdit} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove} sortResults={this.sortResults} onPlayerUpdate={this.onPlayerUpdate}/>
       </div>
     );
   }
