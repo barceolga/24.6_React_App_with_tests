@@ -1,0 +1,78 @@
+.Player__name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0059b3;
+  padding: 10px;
+}
+
+.Player__trophy span {
+  opacity: 1;
+  color: #0000ff;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.Player__trophy .Icon.visible {
+  opacity: 1;
+  color: #ffa31a;
+  font-size: 30px;
+  font-weight: 800,
+}
+
+.Player__trophy .Icon.invisible {
+  opacity: 0;
+  color: #ffa31a;
+}
+
+.Player__score {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.Player__score.positive {
+  color: #0000ff;
+}
+
+.Player__score.negative {
+  color:  #e60000;
+}
+
+.Player__button {
+  font-size: 20px;
+  font-weight: 900;
+  color: #003366;
+  padding: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 1s linear;
+}
+
+.Player__button:hover{
+  transform: scale(1.25);
+  color: #000d1a;
+}
+
+.Player__button-remove {
+  font-size: 20px;
+  font-weight: 900;
+  color: #e60000;
+  padding: 5px;
+  height: 20px;
+  cursor: pointer;
+  transition: 1s linear;
+}
+
+.Player__button-remove:hover{
+  transform: scale(1.25);
+}
+
+.Edit {
+  font-size: 15px;
+  font-weight: 400;
+  color: green;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
