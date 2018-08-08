@@ -1,5 +1,6 @@
 import React from 'react';
 import Player from '../Player/Player';
+//import Edit from '../Edit/Edit.js';
 import './PlayersList.css';
 
 const PlayersList = (props) => (
